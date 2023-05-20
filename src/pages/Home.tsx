@@ -5,7 +5,7 @@ import {useAppDispatch, useAppSelector} from '../store/storeHooks';
 import Videos from '../Components/Videos';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Spinner from '../Components/Spinner';
-import { fetchHomePageVideo } from '../store/Slices/HomePageSlice';
+import { fetchHomePageVideo } from '../store/Action Creators/fetchHomePageVideo';
 
 
 const Home = () => {
