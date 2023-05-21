@@ -3,8 +3,6 @@ import { useAppSelector } from '../store/storeHooks';
 import Card from './Card';
 
 const Vidoes = () => {
-  const d=new Date();
-
     const {videos} = useAppSelector(state=>state.youtubeApp);
    return (
     <div className='pl-48 pt-24 grid w-10/12 grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-x-5 gap-y-10'>

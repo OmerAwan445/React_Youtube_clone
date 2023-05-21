@@ -6,17 +6,19 @@ import { IoAppsSharp } from "react-icons/io5";
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import { useAppDispatch } from '../store/storeHooks';
 import { searchActions } from '../store/Slices/SearchSlice';
+import { clearVideos } from '../store/Slices/YoutubeAppSlice';
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const {addSearchTerm , clearSearchTerm} = searchActions;
   const inputSearchTerm = useRef()as MutableRefObject<HTMLInputElement>;
 const disptach = useAppDispatch();
-  const searchHandler =()=>{
+  const handlerSearch =()=>{
   const searchedTerm = inputSearchTerm.current.value;
     if(searchedTerm.trim()==='') return
-    disptach(addSearchTerm({searchedTerm}));
+    disptach(addSearchTerm(searchedTerm));
     if (location.pathname !== "/search") navigate("/search");
+    disptach(clearVideos());
  }
 
 return (
@@ -37,7 +39,7 @@ return (
     <div className='flex items-center gap-2 flex-initial w-6/12'>
       <form onSubmit={(e)=>{
         e.preventDefault();
-        searchHandler();
+        handlerSearch();
       }}
       className="rounded-3xl relative flex w-full flex-wrap items-stretch">
       <input
@@ -50,7 +52,7 @@ return (
   />
 
       <button
-      onClick={searchHandler}
+      onClick={handlerSearch}
       className="relative z-[2] flex items-center rounded-r-full bg-zinc-800 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md"
       type="button"
       id="button-addon1"
@@ -81,7 +83,3 @@ return (
 }
 
 export default Navbar;
-
-function useref() {
-  throw new Error('Function not implemented.');
-}

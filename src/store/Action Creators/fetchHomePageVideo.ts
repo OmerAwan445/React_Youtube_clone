@@ -25,7 +25,7 @@ export const fetchHomePageVideo = (isNext: boolean, searched = "") => {
       return { parsedItems, nextPageToken };
     })();
     // when searched is empty (it means this action creator os dispatch for Recommended videos) then show recommended videos
-    if(searched==='')
+
     dispatch(YoutubeAppSlice.actions.addVideos({ parsedItems, nextPageToken }));
 };
 };

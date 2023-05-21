@@ -14,8 +14,7 @@ useEffect(() => {
   dispatch(fetchHomePageVideo(false));
 },[dispatch])
 
-console.log("Home");
-
+// console.log("Home");
 useEffect(() => {
   dispatch(clearVideos());
 },[dispatch])
@@ -36,7 +35,7 @@ useEffect(() => {
         }}
         >
         <div className='flex justify-center w-full'>
-      <Videos />
+       <Videos />
       </div>
         </InfiniteScroll>
    </div>
