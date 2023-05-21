@@ -5,7 +5,6 @@ export type Actions={
 export interface InitialState {
     videos:HomePageVideos[],
     nextpageToken:string,
-    currentPlaying:CurrentlyPlaying | null,
 }
 export interface HomePageVideos {
     videoTitle:string,

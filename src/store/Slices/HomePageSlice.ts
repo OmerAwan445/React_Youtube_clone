@@ -11,7 +11,6 @@ interface AddVideosPayload {
 
 const initialState:InitialState = {
     videos:[],
-    currentPlaying:null,
     nextpageToken:""
 }
 
@@ -29,6 +28,8 @@ export const HomePageSlice = createSlice({
     }
     },
 });
+
+export const clearVideos = HomePageSlice.actions.clearVideos;
 
 
 
