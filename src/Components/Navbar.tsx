@@ -10,7 +10,7 @@ import { clearVideos } from '../store/Slices/YoutubeAppSlice';
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const {addSearchTerm , clearSearchTerm} = searchActions;
+  const {addSearchTerm} = searchActions;
   const inputSearchTerm = useRef()as MutableRefObject<HTMLInputElement>;
 const disptach = useAppDispatch();
   const handlerSearch =()=>{

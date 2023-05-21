@@ -15,7 +15,6 @@ export const SearchSlice = createSlice({
     addSearchTerm:(state,action:PayloadAction<string>)=>{
         state.searchTerm =action.payload;
     },
-    clearSearchTerm:(state)=>{state.searchTerm=''}
 }
 }
 );
