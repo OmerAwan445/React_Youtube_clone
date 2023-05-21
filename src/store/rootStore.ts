@@ -1,9 +1,12 @@
 import { configureStore} from "@reduxjs/toolkit";
-import { HomePageSlice } from "./Slices/HomePageSlice";
+import { YoutubeAppSlice } from "./Slices/YoutubeAppSlice";
+import { SearchSlice } from "./Slices/SearchSlice";
 export type RootStoreType= ReturnType <typeof RootStore.getState>;
 
 export const RootStore= configureStore({
     reducer:{
-       homePage: HomePageSlice.reducer},
+        youtubeApp: YoutubeAppSlice.reducer,
+        search:SearchSlice.reducer
+    },
 });
 

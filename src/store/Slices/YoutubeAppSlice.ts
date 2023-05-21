@@ -1,7 +1,5 @@
-import { HomePageVideos, InitialState } from "../../../types";
+import { HomePageVideos, InitialState } from "../../types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-
-
 
 interface AddVideosPayload {
     parsedItems: HomePageVideos[],
@@ -14,8 +12,8 @@ const initialState:InitialState = {
     nextpageToken:""
 }
 
-export const HomePageSlice = createSlice({
-    name: "HOMEPAGE",
+export const YoutubeAppSlice = createSlice({
+    name: "YOUTUBE_APP",
     initialState,
     reducers:{
     addVideos:(state,actions:PayloadAction<AddVideosPayload>)=>{
@@ -29,7 +27,7 @@ export const HomePageSlice = createSlice({
     },
 });
 
-export const clearVideos = HomePageSlice.actions.clearVideos;
+export const clearVideos = YoutubeAppSlice.actions.clearVideos;
 
 
 

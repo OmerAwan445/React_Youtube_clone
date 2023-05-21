@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomePageVideos } from '../../types';
+import { HomePageVideos } from '../types';
 import { Link } from 'react-router-dom';
 const Card = ({ video }: { video: HomePageVideos }) => {
   return (

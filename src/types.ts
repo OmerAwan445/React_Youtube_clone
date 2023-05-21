@@ -2,10 +2,12 @@ export type Actions={
     type:string,
     payload:InitialState
 }
+
 export interface InitialState {
     videos:HomePageVideos[],
     nextpageToken:string,
 }
+
 export interface HomePageVideos {
     videoTitle:string,
     videoLink:string,
@@ -21,4 +23,9 @@ export interface HomePageVideos {
         image:string
     }
 }
+
+export interface SearchInitialState {
+    searchTerm:string,
+}
+
 export interface CurrentlyPlaying{}

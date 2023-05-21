@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { HomePageVideos } from "../../types";
+import { HomePageVideos } from "../types";
 const API_KEY= process.env.REACT_APP_YOUTUBE_DATA_API_KEY;
 
 function formatPublishedDuration(addedDate: any):string {

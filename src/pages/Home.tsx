@@ -6,20 +6,19 @@ import Videos from '../Components/Videos';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Spinner from '../Components/Spinner';
 import { fetchHomePageVideo } from '../store/Action Creators/fetchHomePageVideo';
-import { clearVideos } from '../store/Slices/HomePageSlice';
+import { clearVideos } from '../store/Slices/YoutubeAppSlice';
 const Home = () => {
-
-
-  const {videos} = useAppSelector(state=>state.homePage);
+const {videos} = useAppSelector(state=>state.youtubeApp);
 const dispatch = useAppDispatch();
 useEffect(() => {
   dispatch(fetchHomePageVideo(false));
 },[dispatch])
 
+console.log("Home");
+
 useEffect(() => {
   dispatch(clearVideos());
 },[dispatch])
-console.log(videos);
   return (
   <>
     <div>

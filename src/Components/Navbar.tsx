@@ -1,12 +1,25 @@
-import React from 'react';
+import { MutableRefObject, useRef } from 'react';
 import { TiMicrophone } from "react-icons/ti";
 import { BsYoutube, BsCameraVideo, BsBell } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoAppsSharp } from "react-icons/io5";
-import {Link} from 'react-router-dom';
-
+import {Link, useLocation, useNavigate} from 'react-router-dom';
+import { useAppDispatch } from '../store/storeHooks';
+import { searchActions } from '../store/Slices/SearchSlice';
 const Navbar = () => {
- return (
+  const location = useLocation();
+  const navigate = useNavigate();
+  const {addSearchTerm , clearSearchTerm} = searchActions;
+  const inputSearchTerm = useRef()as MutableRefObject<HTMLInputElement>;
+const disptach = useAppDispatch();
+  const searchHandler =()=>{
+  const searchedTerm = inputSearchTerm.current.value;
+    if(searchedTerm.trim()==='') return
+    disptach(addSearchTerm({searchedTerm}));
+    if (location.pathname !== "/search") navigate("/search");
+ }
+
+return (
    <div className='flex gap-5 w-100 justify-between p-4 items-center fixed left-0 right-10 z-10 ' style={{height:"7.5vh",backgroundColor:"rgb(15, 15, 15)"}}>
     <div className="flex gap-2 items-center ">
       <GiHamburgerMenu className='rounded-full bg-zinc-900 m-1 cursor-pointer hover:bg-zinc-700 text-4xl p-1.5	' />
@@ -22,16 +35,22 @@ const Navbar = () => {
     </div>
 
     <div className='flex items-center gap-2 flex-initial w-6/12'>
-      <div
+      <form onSubmit={(e)=>{
+        e.preventDefault();
+        searchHandler();
+      }}
       className="rounded-3xl relative flex w-full flex-wrap items-stretch">
       <input
   type="search"
-  className="rounded-l-full relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+  className="rounded-l-full relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto border border-solid border-white-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-white-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-white-600 dark:text-white-200 dark:placeholder:text-white-200 dark:focus:border-primary"
   placeholder="Search"
   aria-label="Search"
-  aria-describedby="button-addon1" />
+  aria-describedby="button-addon1"
+  ref={inputSearchTerm}
+  />
 
       <button
+      onClick={searchHandler}
       className="relative z-[2] flex items-center rounded-r-full bg-zinc-800 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md"
       type="button"
       id="button-addon1"
@@ -49,7 +68,7 @@ const Navbar = () => {
       />
       </svg>
       </button>
-      </div>
+      </form>
       <TiMicrophone className='rounded-full bg-zinc-900 m-1 cursor-pointer hover:bg-zinc-700 text-4xl p-1.5'/>
       </div>
     <div className="flex flex-initial w-40 justify-between mr-4">
@@ -62,3 +81,7 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
+function useref() {
+  throw new Error('Function not implemented.');
+}

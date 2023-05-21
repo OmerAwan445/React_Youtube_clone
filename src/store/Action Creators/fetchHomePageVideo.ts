@@ -1,25 +1,31 @@
 import axios from "axios";
 import { RootStore } from "../rootStore";
-import { HomePageVideos } from "../../../types";
+import { HomePageVideos } from "../../types";
 import { parseData } from "../../utils/parseData";
-import { HomePageSlice } from "../Slices/HomePageSlice";
+import { YoutubeAppSlice } from "../Slices/YoutubeAppSlice";
 
-
-
-const API_KEY= process.env.REACT_APP_YOUTUBE_DATA_API_KEY;
+const API_KEY = process.env.REACT_APP_YOUTUBE_DATA_API_KEY;
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
-console.log(API_ENDPOINT);
 
 // ============== Action Creator
-export const fetchHomePageVideo =(isNext:boolean)=>{
-    return async(dispatch:typeof RootStore.dispatch)=>{
-        // IFEI Function
-  const {parsedItems,nextPageToken}= await (async () =>{
-    const nextPageTokenParam = isNext ? `pageToken=${RootStore.getState().homePage.nextpageToken}&` : '';
-    const { data: { items, nextPageToken } } = await axios.get(`${API_ENDPOINT}/search?maxResults=20&q='JayPlays'&key=${API_KEY}&part=snippet&type=video&${nextPageTokenParam}`);
-    const parsedItems:HomePageVideos[] = await parseData(items);
-    return {parsedItems,nextPageToken};
-})();
-    dispatch(HomePageSlice.actions.addVideos({parsedItems,nextPageToken}));
-}
-}
+export const fetchHomePageVideo = (isNext: boolean, searched = "") => {
+  return async (dispatch: typeof RootStore.dispatch) => {
+    // IFEI Function
+    console.log(searched);
+    const { parsedItems, nextPageToken } = await (async () => {
+      const nextPageTokenParam = isNext
+        ? `pageToken=${RootStore.getState().youtubeApp.nextpageToken}&`
+        : "";
+      const {
+        data: { items, nextPageToken },
+      } = await axios.get(
+        `${API_ENDPOINT}/search?maxResults=20&q=${searched===''?'react':searched}&key=${API_KEY}&part=snippet&type=video&${nextPageTokenParam}`
+      );
+      const parsedItems: HomePageVideos[] = await parseData(items);
+      return { parsedItems, nextPageToken };
+    })();
+    // when searched is empty (it means this action creator os dispatch for Recommended videos) then show recommended videos
+    if(searched==='')
+    dispatch(YoutubeAppSlice.actions.addVideos({ parsedItems, nextPageToken }));
+};
+};
