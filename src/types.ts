@@ -28,4 +28,23 @@ export interface SearchInitialState {
     searchTerm:string,
 }
 
-export interface CurrentlyPlaying{}
+export interface WatchInitialState {
+    currentPlaying:CurrentlyPlaying | null,
+    recommendedVideos:RecommendedVideos,
+}
+
+export interface CurrentlyPlaying{
+    videoTitle:string,
+    videoDescription:string,
+    videoViews:string,
+    videoUploadedTime:string,
+    videoId:string,
+    videoLikes:string,
+    channel:{
+        id:string,
+        name:string,
+        image:string,
+        subscribers:string,
+    },
+}
+export interface RecommendedVideos{}

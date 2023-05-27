@@ -11,7 +11,6 @@ const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 export const fetchHomePageVideo = (isNext: boolean, searched = "") => {
   return async (dispatch: typeof RootStore.dispatch) => {
     // IFEI Function
-    console.log(searched);
     const { parsedItems, nextPageToken } = await (async () => {
       const nextPageTokenParam = isNext
         ? `pageToken=${RootStore.getState().youtubeApp.nextpageToken}&`
