@@ -21,7 +21,7 @@ useEffect(()=>{
       <Navbar />
         <Sidebar />
          <InfiniteScroll
-          className='video_sec '
+          className='video_sec'
           dataLength={videos.length}
           next={()=>dispatch(fetchHomePageVideo(true,searchTerm))}
           hasMore={videos.length<=500}

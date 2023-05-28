@@ -9,7 +9,6 @@ const {addCurrentPlayingVideoDetails} =WatchSlice.actions
 
 export function fetchCurrentPlayingVideoDetails(id:string){
     return async (dispatch:typeof RootStore.dispatch) => {
-    console.log("run");
     const {data: {items}}=await axios.get(`${API_ENDPOINT}/videos?part=statistics&part=snippet&id=${id}&key=${API_KEY}`);
     const parsedData= await parseCurrentlyPlayingVideoData(items[0]);
         dispatch(addCurrentPlayingVideoDetails(parsedData))

@@ -39,13 +39,13 @@ const VideoDescription: React.FC<{ videoDescription: string }> = ({ videoDescrip
 
   return (
     <div
-      className={`video-description p-4 rounded-xl bg-slate-700 hover:bg-slate-600 ${
+      className={`video-description p-4 rounded-xl bg-slate-800 hover:bg-slate-700 ${
         expanded ? 'rounded-lg max-h-none overflow-visible' : 'max-h-28 overflow-hidden cursor-pointer'
       }`}
     >
       <p dangerouslySetInnerHTML={{ __html: formattedVideoDescription }} className="mb-4"></p>
-      {expanded && <button className="p-1 text-white cursor-pointer" onClick={toggleExpanded}>
-        sShow Less
+      {expanded && <button className="p-1 text-gray-300 cursor-pointer" onClick={toggleExpanded}>
+        Show Less
       </button>}
     </div>
   );

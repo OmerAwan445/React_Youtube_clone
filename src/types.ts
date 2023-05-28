@@ -30,7 +30,10 @@ export interface SearchInitialState {
 
 export interface WatchInitialState {
     currentPlaying:CurrentlyPlaying | null,
-    recommendedVideos:RecommendedVideos,
+    similarCatagoriesVideoDetails:{
+        nextPageToken:string,
+        videos:SimilarCatagoryVideos[]
+    },
 }
 
 export interface CurrentlyPlaying{
@@ -47,4 +50,16 @@ export interface CurrentlyPlaying{
         subscribers:string,
     },
 }
-export interface RecommendedVideos{}
+
+export interface SimilarCatagoryVideos{
+    videoTitle:string,
+    videoViews:string,
+    videoUploadedTime:string,
+    videoDuration:string,
+    videoId:string,
+    videoThumbnail:string,
+    channel:{
+        id:string,
+        name:string,
+    }
+}

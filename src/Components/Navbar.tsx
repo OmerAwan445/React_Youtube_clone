@@ -22,7 +22,7 @@ const disptach = useAppDispatch();
  }
 
 return (
-   <div className='flex gap-5 w-100 justify-between p-4 items-center fixed left-0 right-10 z-10 ' style={{height:"7.5vh",backgroundColor:"rgb(15, 15, 15)"}}>
+   <div className='flex gap-5 w-100 justify-between px-4 py-7 items-center fixed left-0 right-10 z-10 ' style={{height:"7.5vh",backgroundColor:"rgb(15, 15, 15)"}}>
     <div className="flex gap-2 items-center ">
       <GiHamburgerMenu className='rounded-full bg-zinc-900 m-1 cursor-pointer hover:bg-zinc-700 text-4xl p-1.5	' />
   <Link to={'/'} >
@@ -36,6 +36,7 @@ return (
   </Link>
     </div>
 
+{/* Search Input Field section */}
     <div className='flex items-center gap-2 flex-initial w-6/12'>
       <form onSubmit={(e)=>{
         e.preventDefault();
@@ -73,6 +74,7 @@ return (
       </form>
       <TiMicrophone className='rounded-full bg-zinc-900 m-1 cursor-pointer hover:bg-zinc-700 text-4xl p-1.5'/>
       </div>
+
     <div className="flex flex-initial w-40 justify-between mr-4">
       <BsCameraVideo className='rounded-full bg-zinc-900 m-1 cursor-pointer hover:bg-zinc-700 text-4xl p-2' />
       <BsBell className='rounded-full bg-zinc-900 m-1 cursor-pointer hover:bg-zinc-700 text-4xl p-2' />

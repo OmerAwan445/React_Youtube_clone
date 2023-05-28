@@ -28,12 +28,10 @@ const SearchedVideoCard = ({ video }: { video: HomePageVideos }) => {
             <span className='text-gray-400'>{video.videoUploadedTime}</span>
             </div>
           <div className='mt-4'>
-        <img className='shadow-xl shadow-slate-800 rounded-full h-8 inline-block mr-3' src={video.channel.image} alt='' />
+        <img className='shadow-xl shadow-slate-800 rounded-full h-8 inline-block mr-3' src={video.channel.image} alt={video.channel.name} />
             <span className='text-gray-400 hover:text-white'>
               {video.channel.name}
             </span>
-          <Link to={`/watch/${video.videoId}`} >
-            </Link>
           </div>
         </div>
       </div>

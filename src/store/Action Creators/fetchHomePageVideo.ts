@@ -7,7 +7,7 @@ import { YoutubeAppSlice } from "../Slices/YoutubeAppSlice";
 const API_KEY = process.env.REACT_APP_YOUTUBE_DATA_API_KEY;
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
-// ============== Action Creator
+// ============== Action Creator =========
 export const fetchHomePageVideo = (isNext: boolean, searched = "") => {
   return async (dispatch: typeof RootStore.dispatch) => {
     // IFEI Function
@@ -24,7 +24,6 @@ export const fetchHomePageVideo = (isNext: boolean, searched = "") => {
       return { parsedItems, nextPageToken };
     })();
     // when searched is empty (it means this action creator os dispatch for Recommended videos) then show recommended videos
-
     dispatch(YoutubeAppSlice.actions.addVideos({ parsedItems, nextPageToken }));
 };
 };
