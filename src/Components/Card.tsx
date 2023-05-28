@@ -1,7 +1,7 @@
 import React from 'react';
-import { HomePageVideos } from '../types';
+import { HomeAndSearchPageVideos } from '../types';
 import { Link } from 'react-router-dom';
-const Card = ({ video }: { video: HomePageVideos }) => {
+const Card = ({ video }: { video: HomeAndSearchPageVideos }) => {
   return (
     <div className='group flex flex-col cursor-pointer '>
       <div className='relative'>

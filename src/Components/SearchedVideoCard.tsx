@@ -1,8 +1,8 @@
 import React from 'react';
-import { HomePageVideos } from '../types';
+import { HomeAndSearchPageVideos } from '../types';
 import { Link } from 'react-router-dom';
 
-const SearchedVideoCard = ({ video }: { video: HomePageVideos }) => {
+const SearchedVideoCard = ({ video }: { video: HomeAndSearchPageVideos }) => {
  return (
  <div className='group grid cursor-pointer grid-cols-[max-content_1fr] gap-x-4 drop-shadow-2xl'>
       <div className='relative'>

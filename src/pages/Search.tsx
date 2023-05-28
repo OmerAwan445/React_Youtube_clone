@@ -4,7 +4,7 @@ import Sidebar from '../Components/Sidebar';
 import {useAppDispatch, useAppSelector} from '../store/storeHooks';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Spinner from '../Components/Spinner';
-import { fetchHomePageVideo } from '../store/Action Creators/fetchHomePageVideo';
+import { fetchSearchedOrHomePageVideo } from '../store/Action Creators/fetchSearchedOrHomePageVideo';
 import SearchedVideoCard from '../Components/SearchedVideoCard';
 
 const Search = () => {
@@ -13,7 +13,7 @@ const dispatch = useAppDispatch();
 const searchTerm = useAppSelector(state => state.search.searchTerm );
 
 useEffect(()=>{
-  dispatch(fetchHomePageVideo(false,searchTerm));
+  dispatch(fetchSearchedOrHomePageVideo(false,searchTerm));
 },[searchTerm,dispatch]);
   return (
   <>
@@ -23,7 +23,7 @@ useEffect(()=>{
          <InfiniteScroll
           className='video_sec'
           dataLength={videos.length}
-          next={()=>dispatch(fetchHomePageVideo(true,searchTerm))}
+          next={()=>dispatch(fetchSearchedOrHomePageVideo(true,searchTerm))}
           hasMore={videos.length<=500}
           loader={<Spinner/>}
           height={200}

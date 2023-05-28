@@ -1,47 +1,9 @@
 import axios from "axios";
 
 import { CurrentlyPlaying } from "../types";
+import { formatPublishedDuration, formatStatistics } from "./formatDataFunctions";
 const API_KEY= process.env.REACT_APP_YOUTUBE_DATA_API_KEY;
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
-
-
-function formatPublishedDuration(addedDate: any):string {
-  const todayDate: any = new Date();
-  const diff = (todayDate - addedDate) / 1000;
-  const addedMinutesAgo = Math.floor(diff / 60);
-  const addedHoursAgo = Math.floor(diff / (60 * 60));
-  const addedDaysAgo = Math.floor(diff / (24 * 60 * 60));
-  const addedMonthsAgo = Math.floor(diff / (30 * 24 * 60 * 60));
-  const addedYearsAgo = Math.floor(diff / (365 * 24 * 60 * 60));
-
-  if (addedYearsAgo > 0) {
-    return `${addedYearsAgo} year${addedYearsAgo === 1 ? "" : "s"} ago`;
-  } else if (addedMonthsAgo > 0) {
-    return `${addedMonthsAgo} month${addedMonthsAgo === 1 ? "" : "s"} ago`;
-  } else if (addedDaysAgo > 0) {
-    return `${addedDaysAgo} day${addedDaysAgo === 1 ? "" : "s"} ago`;
-  } else if (addedHoursAgo > 0) {
-    return `${addedHoursAgo} hour${addedHoursAgo === 1 ? "" : "s"} ago`;
-  } else {
-    return `${addedMinutesAgo} minute${addedMinutesAgo === 1 ? "" : "s"} ago`;
-  }
-}
-
-function formatStatistics(data: string): string {
-    const viewCount: number = parseInt(data, 10);
-
-    if (viewCount >= 1000000000) {
-      return Math.floor((viewCount / 1000000000)) + 'B';
-    }
-    if (viewCount >= 1000000) {
-      return Math.floor((viewCount / 1000000)) + 'M';
-    }
-    if (viewCount >= 1000) {
-      return Math.floor(((viewCount / 1000))) + 'K';
-    }
-
-    return data;
-  }
 
 export async function parseCurrentlyPlayingVideoData(item:any) {
     const { id } = item;

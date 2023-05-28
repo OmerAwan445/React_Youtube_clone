@@ -1,14 +1,10 @@
-export type Actions={
-    type:string,
-    payload:InitialState
-}
 
-export interface InitialState {
-    videos:HomePageVideos[],
+export interface AppInitialState {
+    videos:HomeAndSearchPageVideos[],
     nextpageToken:string,
 }
 
-export interface HomePageVideos {
+export interface HomeAndSearchPageVideos {
     videoTitle:string,
     videoLink:string,
     videoDescription:string,

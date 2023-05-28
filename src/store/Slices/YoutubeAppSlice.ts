@@ -1,13 +1,12 @@
-import { HomePageVideos, InitialState } from "../../types";
+import { HomeAndSearchPageVideos, AppInitialState } from "../../types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface AddVideosPayload {
-    parsedItems: HomePageVideos[],
+    parsedItems: HomeAndSearchPageVideos[],
     nextPageToken:string
   }
 
-
-const initialState:InitialState = {
+const initialState:AppInitialState = {
     videos:[],
     nextpageToken:""
 }
