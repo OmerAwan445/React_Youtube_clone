@@ -15,7 +15,5 @@
  - The integration with the YouTube Data API allows fetching video
    details, search results, and related videos.
    
-
 > `Contributions and suggestions are welcome to enhance this Clone.`
 
-.
