@@ -7,20 +7,19 @@ import { fetchCurrentPlayingVideoDetails } from '../store/Action Creators/fetchC
 import VideoDescription from '../Components/VideoDescription';
 import VideoPlayer from '../Components/VideoPlayer';
 import { fetchSimilarCatagoryVideos } from '../store/Action Creators/fetchSimilarCatagoryVideos';
-import SimilarCatagoryVideoCard from '../Components/SimilarCatagoryVideoCard';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import Spinner from '../Components/Spinner';
 import { BiLike, BiDislike } from "react-icons/bi";
 import { HiScissors } from "react-icons/hi";
 import { MdOutlinePlaylistAdd } from "react-icons/md";
 import { FaShare } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
+import SimilarVideos from '../Components/SimilarVideos';
 
 const Watch = () => {
   const dispatch =useAppDispatch();
   const {clearCurrentPlayingAndSimilarCatagoriesVideos} = WatchSlice.actions;
-  const {currentPlaying,similarCatagoriesVideoDetails:{videos}} = useAppSelector(state => state.watch);
+  const currentPlaying = useAppSelector(state => state.watch.currentPlaying);
   const {id}= useParams();
+  console.log("rendered");
   useEffect(()=>{
     if(id)
     {
@@ -38,15 +37,6 @@ const Watch = () => {
  { currentPlaying && id
  &&
   (
-    <InfiniteScroll
-        className='video_sec'
-        dataLength={videos?.length}
-        next={()=>dispatch(fetchSimilarCatagoryVideos(id,true))}
-        hasMore={videos.length<=500}
-        loader={<Spinner/>}
-        height={200}
-        style={{height:"100vh" }}
-      >
   <div className="pt-16 px-16 grid gap-7 lg:grid-cols-[0.7fr_0.3fr] md:grid-cols-[minmax(1fr)]">
   {/* Video Player */}
   <div className="flex flex-col">
@@ -101,12 +91,10 @@ const Watch = () => {
     </div>
   </div>
   {/* Similar Catagory Videos Cards */}
-  <div>
-    {videos?.map((item,index)=><SimilarCatagoryVideoCard key={index} video={item} />)}
+  <SimilarVideos id={id}/>
   </div>
-  </div>
-  </InfiniteScroll>
  )}
- </> );
+ </>
+  );
  }
 export default Watch;

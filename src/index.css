@@ -5,7 +5,7 @@ body{
   color: #ffff;
   font-family: 'Roboto Condensed', sans-serif;
 }
-.sidebar,body{
+.sidebar,video_sec{
   scrollbar-gutter: stable both-edges;
 }
 @layer utilities {
