@@ -31,10 +31,8 @@ useEffect(()=>{
 
         }}
         >
-        <div className='flex justify-center w-full'>
-        <div className='pl-48 pt-24 grid w-10/12 grid-rows-[repeat(auto-fit,minmax(200px,1fr))] gap-x-5 gap-y-10'>
+        <div className='pl-48 pt-24 mx-auto grid w-10/12 grid-rows-[repeat(auto-fit,minmax(200px,1fr))] gap-x-5 gap-y-10'>
     {videos?.map((item,index)=><SearchedVideoCard key={index} video={item} />)}
-  </div>
       </div>
         </InfiniteScroll>
    </div>
