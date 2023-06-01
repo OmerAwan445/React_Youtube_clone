@@ -5,10 +5,18 @@ body{
   color: #ffff;
   font-family: 'Roboto Condensed', sans-serif;
 }
-.sidebar,video_sec{
+.sidebar,video_sec,html{
   scrollbar-gutter: stable both-edges;
 }
 @layer utilities {
+  html::-webkit-scrollbar{
+    width: 7px;
+  }
+  html::-webkit-scrollbar-thumb {
+    border-radius: 100vh;
+    border: 4px solid rgb(63 63 70);
+  }
+
   .video_sec::-webkit-scrollbar {
     width: 7px;
   }

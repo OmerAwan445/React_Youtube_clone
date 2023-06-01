@@ -7,7 +7,7 @@ import {Link, useLocation, useNavigate} from 'react-router-dom';
 import { useAppDispatch } from '../store/storeHooks';
 import { searchActions } from '../store/Slices/SearchSlice';
 import { clearVideos } from '../store/Slices/YoutubeAppSlice';
-const Navbar = () => {
+const Navbar:React.FC<{searchTerm?:string}>= ({searchTerm}) => {
   const location = useLocation();
   const navigate = useNavigate();
   const {addSearchTerm} = searchActions;
@@ -44,13 +44,12 @@ return (
       }}
       className="rounded-3xl relative flex w-full flex-wrap items-stretch">
       <input
-  type="search"
-  className="rounded-l-full relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto border border-solid border-white-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-white-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-white-600 dark:text-white-200 dark:placeholder:text-white-200 dark:focus:border-primary"
-  placeholder="Search"
-  aria-label="Search"
-  aria-describedby="button-addon1"
-  ref={inputSearchTerm}
-  />
+      type="search"
+      className="rounded-l-full relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto border border-solid border-white-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-white-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-white-600 dark:text-white-200 dark:placeholder:text-white-200 dark:focus:border-primary"
+      placeholder="Search"
+      defaultValue={searchTerm ? searchTerm : ""}
+      ref={inputSearchTerm}
+    />
 
       <button
       onClick={handlerSearch}

@@ -19,7 +19,6 @@ const Watch = () => {
   const {clearCurrentPlayingAndSimilarCatagoriesVideos} = WatchSlice.actions;
   const currentPlaying = useAppSelector(state => state.watch.currentPlaying);
   const {id}= useParams();
-  console.log("rendered");
   useEffect(()=>{
     if(id)
     {
@@ -91,7 +90,9 @@ const Watch = () => {
     </div>
   </div>
   {/* Similar Catagory Videos Cards */}
+  <div>
   <SimilarVideos id={id}/>
+  </div>
   </div>
  )}
  </>

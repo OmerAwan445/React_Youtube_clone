@@ -18,7 +18,7 @@ useEffect(()=>{
   return (
   <>
     <div>
-      <Navbar />
+      <Navbar searchTerm={searchTerm}/>
         <Sidebar />
          <InfiniteScroll
           className='video_sec'

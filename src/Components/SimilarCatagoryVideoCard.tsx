@@ -12,7 +12,7 @@ const SimilarCatagoryVideoCard = ({ video }: { video: SimilarCatagoryVideos }) =
         src={video.videoThumbnail}
         alt={video.videoTitle}
       />
-    <span className='transition-opacity delay-150 duration-500 ease-out absolute bottom-1 right-1 opacity-100 group-hover:opacity-0 text-center text-sm bg-black p-0.5'>
+    <span className='transition-opacity delay-150 duration-500 ease-out absolute bottom-1.5 right-1 opacity-100 group-hover:opacity-0 text-center text-sm bg-black p-0.5'>
       {video.videoDuration}
     </span>
     </Link>
