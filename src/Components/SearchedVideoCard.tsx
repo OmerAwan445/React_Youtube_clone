@@ -6,7 +6,7 @@ const SearchedVideoCard = ({ video }: { video: HomeAndSearchPageVideos }) => {
  return (
  <div className='group grid cursor-pointer grid-cols-[max-content_1fr] gap-x-4 drop-shadow-2xl'>
       <div className='relative'>
-        <span className='transition-opacity mb-2 delay-150 duration-500 ease-out absolute bottom-5 right-1 opacity-100 group-hover:opacity-0 text-center text-sm bg-black p-0.5'>
+        <span className='transition-opacity mb-2 delay-150 duration-500 ease-out absolute bottom-2 right-1 opacity-100 group-hover:opacity-0 text-center text-sm bg-black p-0.5'>
           {video.videoDuration}
         </span>
         <Link to={`/watch/${video.videoId}`}>
