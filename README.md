@@ -25,3 +25,40 @@ The **React YouTube Clone** is a responsive web application that replicates some
 
 - Node.js (v14 or later)
 - npm or yarn
+
+### Installation
+
+1. **Clone the Repository:**
+
+    ```bash
+    git clone https://github.com/OmerAwan445/React_Youtube_clone.git
+    cd react-youtube-clone
+    ```
+
+2. **Install Dependencies:**
+
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+3. **Set Up Environment Variables:**
+
+    Create a `.env` file in the root directory and add the following environment variables:
+
+    ```plaintext
+    REACT_APP_YOUTUBE_API_KEY=your_youtube_data_api_key
+    ```
+
+4. **Start the Application:**
+
+    ```bash
+    npm start
+    # or
+    yarn start
+    ```
+
+5. **Access the Application:**
+
+    Open your browser and navigate to `http://localhost:3000`.
